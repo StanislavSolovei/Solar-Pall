@@ -76,11 +76,13 @@
             padding: 40px;
             border-radius: 10px;
             width: 350px;
+            height: 500px;
             text-align: center;
         }
 
         .logo {
-            width: 200px;
+            width: 250px;
+            height: 200px;
             margin-bottom: 30px;
         }
 
@@ -95,6 +97,7 @@
             border-radius: 5px;
             transform: skew(-20deg);
             transition: background-color 0.3s;
+            margin-top: 50px;
         }
 
         .pre-order-btn:hover {
@@ -164,8 +167,13 @@
         }
 
         .info-text {
-            flex: 1;
-            padding-left: 40px;
+            background: linear-gradient(to right, #9e5bba, #dd5e89);
+            color: white;
+            border-radius: 10px;
+            width: 600px; /* или больше при необходимости */
+            padding: 16px;
+            box-sizing: border-box;
+            font-family: sans-serif;
         }
 
         .info-text p {
@@ -206,7 +214,8 @@
         }
 
         .character-info {
-            background-color: white;
+            color: white;
+            background-color: rgb(67, 88, 145);
             padding: 30px;
             border-radius: 10px;
             min-height: 300px;
@@ -268,8 +277,18 @@
         }
 
         .news-text {
-            flex: 1;
-            padding-right: 40px;
+            background: linear-gradient(to right, #9e5bba, #dd5e89);
+            color: white;
+            border-radius: 10px;
+            width: 600px; /* или больше при необходимости */
+            padding: 16px;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+
+        .section-light-section {
+            background-color: #1a1a2e;
+            padding: 50px 10%;
         }
 
         /* Секция с платформами */
@@ -427,7 +446,7 @@
     <div class="section-divider">
         <h2><span>Новости</span></h2>
     </div>
-    <section id="news" class="section light-section">
+    <section id="news" class="section-light-section">
         <div class="news-content">
             <div class="news-text">
                 <h3>Демо-версия вышла в Steam!</h3>
