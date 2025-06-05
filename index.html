@@ -291,66 +291,228 @@
             padding: 50px 10%;
         }
 
-        /* Секция с платформами */
         .platforms {
             background-color: var(--primary-dark);
-            padding: 40px 0;
+            padding: 60px 0;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .platforms::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--accent-color), transparent);
+        }
+
+        .platforms h3 {
+            margin-bottom: 40px;
+            font-size: 28px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+
+        .platforms h3::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 25%;
+            width: 50%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--accent-color), transparent);
         }
 
         .platform-links {
             display: flex;
             justify-content: center;
-            gap: 30px;
-            margin-top: 30px;
+            gap: 40px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
 
         .platform-link {
-            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             text-decoration: none;
-            font-size: 18px;
-            font-weight: bold;
-            padding: 10px 20px;
-            border-radius: 5px;
-            background-color: var(--primary-color);
-            transition: background-color 0.3s;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            width: 180px;
+            padding: 20px 15px;
+            border-radius: 15px;
+            background: rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(5px);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .platform-link::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, 
+                rgba(255,255,255,0.1) 0%, 
+                rgba(255,255,255,0.05) 50%, 
+                transparent 100%);
+            z-index: -1;
+            opacity: 0.7;
+        }
+
+        .platform-link::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--accent-color);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
         }
 
         .platform-link:hover {
-            background-color: var(--accent-color);
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
         }
 
+        .platform-link:hover::after {
+            transform: scaleX(1);
+        }
+
+        .platform-icon {
+            width: 100px;
+            height: 100px;
+            border-radius: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+
+        .platform-link:hover .platform-icon {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.3);
+        }
+
+        .platform-icon img {
+            width: 70px;
+            height: 70px;
+            object-fit: contain;
+            transition: all 0.3s ease;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+        }
+
+        .platform-link:hover .platform-icon img {
+            transform: scale(1.15);
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.4));
+        }
+
+        .platform-name {
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+            letter-spacing: 1px;
+        }
+
+        .platform-link:hover .platform-name {
+            color: var(--accent-color);
+            text-shadow: 0 0 10px rgba(255,127,80,0.5);
+        }
+
+        /* Градиенты для фона иконок */
+        .steam-icon { background: linear-gradient(135deg, #1b2838, #2a475e); }
+        .epic-icon { background: linear-gradient(135deg, #313131, #000000); }
+        .appstore-icon { background: linear-gradient(135deg, #0d96f2, #0071e3); }
+        .playmarket-icon { background: linear-gradient(135deg, #0f9d58, #00c853); }
+
         /* Адаптивность */
+        @media (max-width: 992px) {
+            .platform-links {
+                gap: 30px;
+            }
+            
+            .platform-link {
+                width: 160px;
+            }
+            
+            .platform-icon {
+                width: 90px;
+                height: 90px;
+            }
+            
+            .platform-icon img {
+                width: 60px;
+                height: 60px;
+            }
+        }
+
         @media (max-width: 768px) {
-            .nav-links {
+            .platform-links {
+                gap: 20px;
+            }
+            
+            .platform-link {
+                width: 140px;
+                padding: 15px 10px;
+            }
+            
+            .platform-icon {
+                width: 80px;
+                height: 80px;
+            }
+            
+            .platform-icon img {
+                width: 50px;
+                height: 50px;
+            }
+            
+            .platform-name {
+                font-size: 16px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .platform-links {
                 gap: 15px;
             }
             
-            .hero-overlay {
-                right: 5%;
-                width: 90%;
+            .platform-link {
+                width: 130px;
             }
             
-            .info-content, .news-content {
-                flex-direction: column;
+            .platform-icon {
+                width: 70px;
+                height: 70px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .platform-links {
+                gap: 10px;
             }
             
-            .info-image, .news-image {
-                width: 100%;
-                clip-path: none;
-                height: 300px;
-            }
-            
-            .gallery-item {
-                width: 100%;
-            }
-            
-            .character-selector {
-                flex-wrap: wrap;
-            }
-            
-            .info-text, .news-text {
-                padding: 20px 0;
+            .platform-link {
+                width: 45%;
+                margin-bottom: 15px;
             }
         }
     </style>
@@ -459,13 +621,38 @@
         </div>
     </section>
 
-    <!-- Секция с платформами -->
+    <!-- Секция с платформами - ОБНОВЛЕНО! -->
     <section class="platforms">
         <h3>Доступно на платформах:</h3>
         <div class="platform-links">
-            <a href="#" class="platform-link">Steam</a>
-            <a href="#" class="platform-link">Epic Games</a>
-            <a href="#" class="platform-link">App Store</a>
+            <a href="#" class="platform-link">
+                <div class="platform-icon steam-icon">
+                    <!-- Улучшенный логотип Steam -->
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Steam_icon_logo.svg/1024px-Steam_icon_logo.svg.png" alt="Steam">
+                </div>
+                <span class="platform-name">Steam</span>
+            </a>
+            <a href="#" class="platform-link">
+                <div class="platform-icon epic-icon">
+                    <!-- Улучшенный логотип Epic Games -->
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Epic_Games_logo.svg/882px-Epic_Games_logo.svg.png" alt="Epic Games">
+                </div>
+                <span class="platform-name">Epic Games</span>
+            </a>
+            <a href="#" class="platform-link">
+                <div class="platform-icon appstore-icon">
+                    <!-- Улучшенный логотип App Store -->
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/App_Store_%28iOS%29.svg/2048px-App_Store_%28iOS%29.svg.png" alt="App Store">
+                </div>
+                <span class="platform-name">App Store</span>
+            </a>
+            <a href="#" class="platform-link">
+                <div class="platform-icon playmarket-icon">
+                    <!-- Улучшенный логотип Play Market -->
+                    <img src="https://img.icons8.com/fluent/600/google-play-store-new.png" alt="Play Market">
+                </div>
+                <span class="platform-name">Play Market</span>
+            </a>
         </div>
     </section>
 
