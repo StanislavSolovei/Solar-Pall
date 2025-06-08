@@ -30,10 +30,13 @@
             user-select: none;
         }
 
-        /* Навигационная панель */
+        /* НАВИГАЦИОННАЯ ПАНЕЛЬ - ИЗМЕНЕНО! */
         .nav-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             background-color: var(--primary-color);
-            padding: 15px 0;
+            padding: 15px 5%;
             position: sticky;
             top: 0;
             z-index: 100;
@@ -42,8 +45,7 @@
 
         .nav-links {
             display: flex;
-            justify-content: center;
-            gap: 40px;
+            gap: 25px;
         }
 
         .nav-link {
@@ -60,7 +62,48 @@
             background-color: var(--primary-dark);
         }
 
-        /* Герой-секция с лого и кнопкой */
+        /* ПЕРЕКЛЮЧАТЕЛЬ ЯЗЫКОВ - ДОБАВЛЕНО! */
+        .language-switcher {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .lang-btn {
+            width: 40px;
+            height: 30px;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 2px solid transparent;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+            position: relative;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .lang-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .lang-btn.active {
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 3px rgba(255, 127, 80, 0.4);
+        }
+
+        .lang-btn.ru {
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 9 6"><rect fill="white" stroke="white" stroke-width="0.05" width="9" height="2" y="0"/><rect fill="%230039A6" stroke="%230039A6" stroke-width="0.05" width="9" height="2" y="2"/><rect fill="%23D52B1E" stroke="%23D52B1E" stroke-width="0.05" width="9" height="2" y="4"/></svg>');
+            border: 1px solid #eee;
+        }
+
+        .lang-btn.en {
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30"><path fill="%23012169" d="M0 0v30h60V0z"/><path stroke="%23fff" stroke-width="6" d="M0 0l60 30m0-30L0 30"/><path stroke="%23C8102E" stroke-width="4" d="M0 0l60 30m0-30L0 30" stroke-linecap="square"/><path stroke="%23fff" stroke-width="10" d="M30 0v30M0 15h60"/><path stroke="%23C8102E" stroke-width="6" d="M30 0v30M0 15h60"/></svg>');
+            border: 1px solid #eee;
+        }
+
+        /* Остальные стили остаются без изменений */
         .hero {
             position: relative;
             height: 500px;
@@ -110,7 +153,6 @@
             transform: skew(20deg);
         }
 
-        /* Разделительные полосы */
         .section-divider {
             background-color: var(--primary-color);
             color: white;
@@ -132,7 +174,6 @@
             transform: skew(20deg);
         }
 
-        /* Основные секции */
         .section {
             padding: 50px 10%;
         }
@@ -146,7 +187,6 @@
             color: #333;
         }
 
-        /* Секция "Инфо" с диагональным изображением */
         .info-content {
             display: flex;
             gap: 40px;
@@ -171,7 +211,7 @@
             background: linear-gradient(to right, #9e5bba, #dd5e89);
             color: white;
             border-radius: 10px;
-            width: 600px; /* или больше при необходимости */
+            width: 600px;
             padding: 16px;
             box-sizing: border-box;
             font-family: sans-serif;
@@ -180,7 +220,6 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.2);
         }
 
-        /* Анимация при наведении на текстовый блок */
         .info-text:hover {
             transform: scale(1.03);
             box-shadow: 0 15px 40px rgba(0,0,0,0.3);
@@ -190,7 +229,6 @@
             margin-bottom: 20px;
         }
 
-        /* Секция "Персонажи" */
         .characters-container {
             display: flex;
             flex-direction: column;
@@ -236,7 +274,6 @@
             transform-origin: center;
         }
 
-        /* Анимация при наведении на блок персонажа */
         .character-info:hover {
             transform: scale(1.02);
             box-shadow: 0 10px 25px rgba(0,0,0,0.2);
@@ -246,12 +283,11 @@
             display: none;
         }
 
-        /* Секция "Галерея" */
         .gallery-section {
             position: relative;
             max-width: 1400px;
             margin: 0 auto;
-            padding: 0 70px; /* Добавляем отступы для стрелок */
+            padding: 0 70px;
         }
 
         .gallery-container {
@@ -329,55 +365,6 @@
             fill: white;
         }
 
-        /* Адаптивность */
-        @media (max-width: 1200px) {
-            .gallery-section {
-                padding: 0 60px;
-            }
-        }
-
-        @media (max-width: 992px) {
-            .gallery-item {
-                flex: 0 0 calc(100% / 2 - 20px);
-            }
-            
-            .gallery-section {
-                padding: 0 50px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .gallery-section {
-                padding: 0 40px;
-            }
-            
-            .gallery-item {
-                flex: 0 0 calc(100% - 20px);
-            }
-            
-            .gallery-arrow {
-                width: 45px;
-                height: 45px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .gallery-section {
-                padding: 0 30px;
-            }
-            
-            .gallery-arrow {
-                width: 40px;
-                height: 40px;
-            }
-            
-            .gallery-arrow svg {
-                width: 24px;
-                height: 24px;
-            }
-        }
-
-        /* Модальное окно для галереи */
         .gallery-modal {
             display: none;
             position: fixed;
@@ -480,7 +467,6 @@
             font-size: 16px;
         }
 
-        /* Секция "Новости" с диагональным изображением */
         .news-content {
             display: flex;
             gap: 40px;
@@ -505,7 +491,7 @@
             background: linear-gradient(to right, #9e5bba, #dd5e89);
             color: white;
             border-radius: 10px;
-            width: 600px; /* или больше при необходимости */
+            width: 600px;
             padding: 16px;
             box-sizing: border-box;
             font-family: sans-serif;
@@ -514,7 +500,6 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.2);
         }
 
-        /* Анимация при наведении на новостной блок */
         .news-text:hover {
             transform: scale(1.03);
             box-shadow: 0 15px 40px rgba(0,0,0,0.3);
@@ -672,41 +657,70 @@
             text-shadow: 0 0 10px rgba(255,127,80,0.5);
         }
 
-        /* Градиенты для фона иконок */
         .steam-icon { background: linear-gradient(135deg, #1b2838, #2a475e); }
         .epic-icon { background: linear-gradient(135deg, #313131, #000000); }
         .appstore-icon { background: linear-gradient(135deg, #0d96f2, #0071e3); }
         .playmarket-icon { background: linear-gradient(135deg, #0f9d58, #00c853); }
 
-        /* Адаптивность */
+        /* Адаптивность для навигации */
+        @media (max-width: 768px) {
+            .nav-bar {
+                flex-direction: column;
+                gap: 15px;
+                padding: 15px;
+            }
+            
+            .nav-links {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .language-switcher {
+                margin-top: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-links {
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+            
+            .nav-link {
+                font-size: 16px;
+                padding: 5px 10px;
+            }
+        }
+
+        /* Остальная адаптивность остается без изменений */
+        @media (max-width: 1200px) {
+            .gallery-section {
+                padding: 0 60px;
+            }
+        }
+
         @media (max-width: 992px) {
-            .platform-links {
-                gap: 30px;
+            .gallery-item {
+                flex: 0 0 calc(100% / 2 - 20px);
             }
             
-            .platform-link {
-                width: 160px;
-            }
-            
-            .platform-icon {
-                width: 90px;
-                height: 90px;
-            }
-            
-            .platform-icon img {
-                width: 60px;
-                height: 60px;
+            .gallery-section {
+                padding: 0 50px;
             }
         }
 
         @media (max-width: 768px) {
-            .nav-links {
-                gap: 15px;
+            .gallery-section {
+                padding: 0 40px;
             }
             
-            .hero-overlay {
-                right: 5%;
-                width: 90%;
+            .gallery-item {
+                flex: 0 0 calc(100% - 20px);
+            }
+            
+            .gallery-arrow {
+                width: 45px;
+                height: 45px;
             }
             
             .info-content, .news-content {
@@ -717,10 +731,6 @@
                 width: 100%;
                 clip-path: none;
                 height: 300px;
-            }
-            
-            .gallery-item {
-                width: 100%;
             }
             
             .character-selector {
@@ -756,22 +766,21 @@
             }
         }
 
-        @media (max-width: 576px) {
-            .platform-links {
-                gap: 15px;
-            }
-            
-            .platform-link {
-                width: 130px;
-            }
-            
-            .platform-icon {
-                width: 70px;
-                height: 70px;
-            }
-        }
-
         @media (max-width: 480px) {
+            .gallery-section {
+                padding: 0 30px;
+            }
+            
+            .gallery-arrow {
+                width: 40px;
+                height: 40px;
+            }
+            
+            .gallery-arrow svg {
+                width: 24px;
+                height: 24px;
+            }
+            
             .platform-links {
                 gap: 10px;
             }
@@ -784,13 +793,18 @@
     </style>
 </head>
 <body>
-    <!-- Навигационная панель -->
+    <!-- Обновлённая навигационная панель -->
     <nav class="nav-bar">
         <div class="nav-links">
             <a href="#info" class="nav-link">Инфо</a>
             <a href="#characters" class="nav-link">Персонажи</a>
             <a href="#gallery" class="nav-link">Галерея</a>
             <a href="#news" class="nav-link">Новости</a>
+        </div>
+        
+        <div class="language-switcher">
+            <div class="lang-btn ru active" data-lang="ru" id="RU"></div>
+            <div class="lang-btn en" data-lang="en" id="EN"></div>
         </div>
     </nav>
 
@@ -813,7 +827,7 @@
             </div>
             <div class="info-text">
                 <p>"SOLAR DALL" - визуальная новелла, которая перенесёт тебя в атмосферу деревенской жизни 1982 года. Здесь ты познакомишься с множеством интересных персонажей. Узнаешь много захватывающего об этом загадочном мире и, возможно, даже встретишь свою настоящую любовь! Приготовься окунуться в увлекательное приключение, полное тайн, загадок и даже опасностей.</p>
-                <p>Плиса - это реально существующая деревня в Беларуси, где проживают около 300 человек. Её даже можно найти на карте. Здесь прошло летство автора идеи "Под покровом солнца". Каждое лето для него здесь было маленьким и захватывающим приключением. Множество приятных воспоминаний детства легли в основу нашей новеллы. Мы уверены, каждый из вас найдёт здесь что-то родное и знакомое и для себя!</p>
+                <p>Плиса - это реально существующая деревня в Беларуси, где проживают около 300 человек. Её даже можно найти на карте. Здесь прошло лето автора идеи "Под покровом солнца". Каждое лето для него здесь было маленьким и захватывающим приключением. Множество приятных воспоминаний детства легли в основу нашей новеллы. Мы уверены, каждый из вас найдёт здесь что-то родное и знакомое и для себя!</p>
             </div>
         </div>
     </section>
@@ -945,34 +959,30 @@
         </div>
     </section>
 
-    <!-- Секция с платформами - ОБНОВЛЕНО! -->
+    <!-- Секция с платформами -->
     <section class="platforms">
         <h3>Доступно на платформах:</h3>
         <div class="platform-links">
             <a href="#" class="platform-link">
                 <div class="platform-icon steam-icon">
-                    <!-- Улучшенный логотип Steam -->
                     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Steam_icon_logo.svg/1024px-Steam_icon_logo.svg.png" alt="Steam">
                 </div>
                 <span class="platform-name">Steam</span>
             </a>
             <a href="#" class="platform-link">
                 <div class="platform-icon epic-icon">
-                    <!-- Улучшенный логотип Epic Games -->
                     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Epic_Games_logo.svg/882px-Epic_Games_logo.svg.png" alt="Epic Games">
                 </div>
                 <span class="platform-name">Epic Games</span>
             </a>
             <a href="#" class="platform-link">
                 <div class="platform-icon appstore-icon">
-                    <!-- Улучшенный логотип App Store -->
                     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/App_Store_%28iOS%29.svg/2048px-App_Store_%28iOS%29.svg.png" alt="App Store">
                 </div>
                 <span class="platform-name">App Store</span>
             </a>
             <a href="#" class="platform-link">
                 <div class="platform-icon playmarket-icon">
-                    <!-- Улучшенный логотип Play Market -->
                     <img src="https://img.icons8.com/fluent/600/google-play-store-new.png" alt="Play Market">
                 </div>
                 <span class="platform-name">Play Market</span>
@@ -987,17 +997,13 @@
         
         characterBtns.forEach(btn => {
             btn.addEventListener('click', () => {
-                // Удаляем активный класс у всех кнопок
                 characterBtns.forEach(b => b.classList.remove('active'));
-                // Добавляем активный класс текущей кнопке
                 btn.classList.add('active');
                 
-                // Скрываем все блоки с информацией
                 characterInfos.forEach(info => {
                     info.classList.add('hidden');
                 });
                 
-                // Показываем нужный блок
                 const characterId = btn.dataset.character;
                 document.getElementById(`${characterId}-info`).classList.remove('hidden');
             });
@@ -1014,7 +1020,26 @@
             });
         });
 
-        // Новая логика для галереи без точек
+        // Переключение языков
+        const langButtons = document.querySelectorAll('.lang-btn');
+        
+        langButtons.forEach(btn => {
+            btn.addEventListener('click', function() {
+                langButtons.forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                
+                const lang = this.dataset.lang;
+                changeLanguage(lang);
+            });
+        });
+
+        // Функция смены языка (заглушка)
+        function changeLanguage(lang) {
+            console.log(`Язык изменён на: ${lang === 'ru' ? 'Русский' : 'English'}`);
+            // Здесь будет реальная логика смены языка
+        }
+
+        // Галерея
         const gallerySlider = document.querySelector('.gallery-slider');
         const galleryItems = document.querySelectorAll('.gallery-item');
         const prevArrow = document.querySelector('.gallery-arrow.prev');
@@ -1030,39 +1055,33 @@
         let slidesToShow = 3;
         const totalItems = galleryItems.length;
 
-        // Обновляем положение слайдера
         function updateSlider() {
-            const itemWidth = galleryItems[0].offsetWidth + 20; // Ширина элемента + margin
+            const itemWidth = galleryItems[0].offsetWidth + 20;
             const offset = -currentIndex * itemWidth;
             gallerySlider.style.transform = `translateX(${offset}px)`;
         }
 
-        // Переключение слайдов
         function goToSlide(index) {
             const maxIndex = totalItems - slidesToShow;
             currentIndex = Math.max(0, Math.min(index, maxIndex));
             updateSlider();
         }
 
-        // Стрелки галереи
         prevArrow.addEventListener('click', () => goToSlide(currentIndex - 1));
         nextArrow.addEventListener('click', () => goToSlide(currentIndex + 1));
 
-        // Открытие изображения в модальном окне
         galleryItems.forEach((item, index) => {
             item.addEventListener('click', () => {
                 openModal(index);
             });
         });
 
-        // Функция открытия модального окна
         function openModal(index) {
             modal.style.display = 'flex';
             document.body.style.overflow = 'hidden';
             updateModalImage(index);
         }
 
-        // Обновление изображения в модальном окне
         function updateModalImage(index) {
             const imgSrc = galleryItems[index].querySelector('img').src;
             modalImg.src = imgSrc;
@@ -1070,7 +1089,6 @@
             currentModalIndex = index;
         }
 
-        // Переключение изображений в модальном окне
         let currentModalIndex = 0;
 
         modalPrev.addEventListener('click', () => {
@@ -1083,13 +1101,11 @@
             updateModalImage(newIndex);
         });
 
-        // Закрытие модального окна
         modalClose.addEventListener('click', () => {
             modal.style.display = 'none';
             document.body.style.overflow = 'auto';
         });
 
-        // Закрытие по клику вне изображения
         modal.addEventListener('click', (e) => {
             if (e.target === modal) {
                 modal.style.display = 'none';
@@ -1097,7 +1113,6 @@
             }
         });
 
-        // Обработка клавиатуры
         document.addEventListener('keydown', (e) => {
             if (modal.style.display === 'flex') {
                 if (e.key === 'ArrowLeft') {
@@ -1113,7 +1128,6 @@
             }
         });
 
-        // Адаптация количества отображаемых слайдов
         function updateSlidesToShow() {
             if (window.innerWidth < 768) {
                 slidesToShow = 1;
@@ -1123,7 +1137,6 @@
                 slidesToShow = 3;
             }
 
-            // Пересчитываем текущий индекс
             const maxIndex = Math.ceil(totalItems / slidesToShow) - 1;
             if (currentIndex > maxIndex) {
                 currentIndex = maxIndex;
@@ -1132,15 +1145,17 @@
             updateSlider();
         }
 
-        // Инициализация и обработка ресайза
         updateSlidesToShow();
         window.addEventListener('resize', () => {
             updateSlidesToShow();
             updateSlider();
         });
 
-        // Инициализация слайдера
         setTimeout(updateSlider, 100);
+
+        // Language switcher (placeholder)
+        document.getElementById('RU').addEventListener('click', () => alert('Переключение на русский язык'));
+        document.getElementById('EN').addEventListener('click', () => alert('Switching to English'));
     </script>
 </body>
 </html>
