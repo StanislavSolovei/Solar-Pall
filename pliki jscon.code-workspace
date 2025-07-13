@@ -1,0 +1,25 @@
+{
+	"folders": [
+		{
+			"path": "../../OneDrive/Рабочий стол/pliki jscon"
+		},
+		{
+			"path": "../../OneDrive/Рабочий стол/Zadanie_fryzjer"
+		},
+		{
+			"path": "../Strona_moje_zainteresowania"
+		},
+		{
+			"path": "E:/Strona_moje_zainteresowania"
+		},
+		{
+			"path": "../Praktyki_Gra"
+		},
+		{
+			"path": "../практики-сайт"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "Zadanie_fryzjer"
+	}
+}
