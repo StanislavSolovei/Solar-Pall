@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>SOLAR PALL</title>
+    <style>
+      /* Ваши существующие стили */
+      .lang-btn {
+        cursor: pointer;
+      }
+      .lang-btn.active {
+        border: 2px solid yellow;
+      }
+      .selected-description {
+        display: none;
+      }
+      .selected-description.show {
+        display: block;
+      }
+      .gallery-modal {
+        display: none;
+        position: fixed; /* остальные стили модального окна */
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Обновлённая навигационная панель -->
+    <nav class="nav-bar">
+      <div class="nav-links">
+        <a href="#info" class="nav-link lang" data-key="nav_info">Инфо</a>
+        <a href="#characters" class="nav-link lang" data-key="nav_characters"
+          >Персонажи</a
+        >
+        <a href="#gallery" class="nav-link lang" data-key="nav_gallery"
+          >Галерея</a
+        >
+        <a href="#news" class="nav-link lang" data-key="nav_news">Новости</a>
+      </div>
+
+      <div class="language-switcher">
+        <div class="lang-btn ru active" data-lang="ru" id="RU"></div>
+        <div class="lang-btn en" data-lang="en" id="EN"></div>
+      </div>
+    </nav>
+
+    <!-- Герой-секция -->
+    <section class="hero">
+      <div class="hero-overlay">
+        <img
+          src="https://www.imgonline.com.ua/examples/bee-on-daisy.jpg"
+          alt="Логотип"
+          class="logo lang"
+          data-key="logo_alt"
+        />
+        <a href="#" class="pre-order-btn">
+          <span class="lang" data-key="pre_order">Pre-order</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- Секция "Новости" -->
+    <div class="section-divider">
+      <h2><span class="lang" data-key="section_news">Новости</span></h2>
+    </div>
+    <section id="news" class="section dark-section">
+      <div class="perfect-connection">
+        <div class="shaped-visual-area">
+          <img
+            src="https://www.imgonline.com.ua/examples/bee-on-daisy.jpg"
+            alt="Новость"
+            class="custom-shaped-img"
+          />
+        </div>
+        <div class="extended-text-area">
+          <div class="text-container">
+            <p class="lang" data-key="news1_p1">
+              Друзья, это свершилось! Демо-версия «Под покровом солнца» вышла в
+              Steam! Ссылка для скачивания: store.steampowered.com/app/217816...
+            </p>
+            <p class="lang" data-key="news1_p2">
+              Добро пожаловать в уютную и живописную деревню, где время течет
+              медленно и спокойно, словно река, которая тихо протекает по
+              зеленым полям и лесам.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Drugi news (obraz po prawej) -->
+      <div class="perfect-connection reverse" style="margin-top: 50px">
+        <div class="shaped-visual-area">
+          <img
+            src="https://www.imgonline.com.ua/examples/bee-on-daisy.jpg"
+            alt="Новость"
+            class="custom-shaped-img"
+          />
+        </div>
+        <div class="extended-text-area">
+          <div class="text-container">
+            <p class="lang" data-key="news2_p1">
+              Друзья, это свершилось! Демо-версия «Под покровом солнца» вышла в
+              Steam! Ссылка для скачивания: store.steampowered.com/app/217816...
+            </p>
+            <p class="lang" data-key="news2_p2">
+              Добро пожаловать в уютную и живописную деревню, где время течет
+              медленно и спокойно, словно река, которая тихо протекает по
+              зеленым полям и лесам.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Секция "Инфо" -->
+    <div class="section-divider">
+      <h2><span class="lang" data-key="section_info">Инфо</span></h2>
+    </div>
+    <section id="info" class="section dark-section">
+      <div class="info-content">
+        <div class="info-image">
+          <img
+            src="https://images.unsplash.com/photo-1506318137071-a8e063b4bec0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+            alt="Об игре"
+            class="lang"
+            data-key="info_img_alt"
+          />
+        </div>
+        <div class="info-text">
+          <p class="lang" data-key="info_p1">
+            "SOLAR DALL" - визуальная новелла, которая перенесёт тебя в
+            атмосферу деревенской жизни 1982 года. Здесь ты познакомишься с
+            множеством интересных персонажей. Узнаешь много захватывающего об
+            этом загадочном мире и, возможно, даже встретишь свою настоящую
+            любовь! Приготовься окунуться в увлекательное приключение, полное
+            тайн, загадок и даже опасностей.
+          </p>
+          <p class="lang" data-key="info_p2">
+            Плиса - это реально существующая деревня в Беларуси, где проживают
+            около 300 человек. Её даже можно найти на карте. Здесь прошло лето
+            автора идеи "Под покровом солнца". Каждое лето для него здесь было
+            маленьким и захватывающим приключением. Множество приятных
+            воспоминаний детства легли в основу нашей новеллы. Мы уверены,
+            каждый из вас найдёт здесь что-то родное и знакомое и для себя!
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Секция "Персонажи" -->
+    <div class="section-divider">
+      <h2><span class="lang" data-key="section_characters">Персонажи</span></h2>
+    </div>
+    <section id="characters" class="section light-section">
+      <div class="characters-inline">
+        <div class="character" data-id="0">
+          <img src="characters/1a.png" alt="Виталик" class="lang" data-key="char0_alt" />
+          <div class="description">
+            <h3 class="lang" data-key="char0_name">Виталик</h3>
+            <p class="lang" data-key="char0_desc">
+              Лето для Виталика — это возможность сбежать от привычного ритма
+              школы...
+            </p>
+          </div>
+        </div>
+        <div class="character" data-id="1">
+          <img
+            src="characters/2a.png"
+            alt="Персонаж 2"
+            class="lang"
+            data-key="char1_alt"
+          />
+          <div class="description">
+            <h3 class="lang" data-key="char1_name">Персонаж 2</h3>
+            <p class="lang" data-key="char1_desc">Описание персонажа 2.</p>
+          </div>
+        </div>
+        <div class="character" data-id="2">
+          <img
+            src="characters/3a.png"
+            alt="Персонаж 3"
+            class="lang"
+            data-key="char2_alt"
+          />
+          <div class="description">
+            <h3 class="lang" data-key="char2_name">Персонаж 3</h3>
+            <p class="lang" data-key="char2_desc">Описание персонажа 3.</p>
+          </div>
+        </div>
+        <div class="character" data-id="3">
+          <img
+            src="characters/4a.png"
+            alt="Персонаж 4"
+            class="lang"
+            data-key="char3_alt"
+          />
+          <div class="description">
+            <h3 class="lang" data-key="char3_name">Персонаж 4</h3>
+            <p class="lang" data-key="char3_desc">Описание персонажа 4.</p>
+          </div>
+        </div>
+        <div class="character" data-id="4">
+          <img
+            src="characters/5a.png"
+            alt="Персонаж 5"
+            class="lang"
+            data-key="char4_alt"
+          />
+          <div class="description">
+            <h3 class="lang" data-key="char4_name">Персонаж 5</h3>
+            <p class="lang" data-key="char4_desc">Описание персонажа 5.</p>
+          </div>
+        </div>
+        <div class="character" data-id="5">
+          <img
+            src="characters/6a.png"
+            alt="Персонаж 6"
+            class="lang"
+            data-key="char5_alt"
+          />
+          <div class="description">
+            <h3 class="lang" data-key="char5_name">Персонаж 6</h3>
+            <p class="lang" data-key="char5_desc">Описание персонажа 6.</p>
+          </div>
+        </div>
+        <div class="character" data-id="6">
+          <img src="characters/7a.png" 
+          alt="Персонаж 7" 
+          class="lang" 
+          data-key="char6_alt" 
+          />
+        <div class="description">
+          <h3 class="lang" data-key="char6_name">Персонаж 7</h3>
+          <p class="lang" data-key="char6_desc">Описание персонажа 7.</p>
+        </div>
+      </div>
+
+      </div>
+      <!-- Блок для отображения выбранного описания -->
+      <div id="character-info-block" class="perfect-connection reverse" style="margin-top: 50px; display: none;">  
+      <div class="shaped-visual-area">
+      </div>
+  <div class="extended-text-area">
+    <img id="character-image" src="" alt="Персонаж" class="custom-shaped-img" />
+    <div class="text-container">
+      <h3 id="character-name"></h3>
+      <p id="character-description"></p>
+    </div>
+  </div>
+</div>
+
+    </section>
+
+    <!-- Секция "Галерея" -->
+    <div class="section-divider">
+      <h2><span class="lang" data-key="section_gallery">Галерея</span></h2>
+    </div>
+    <section id="gallery" class="section dark-section">
+      <div class="gallery-section">
+        <div class="gallery-container">
+          <div class="gallery-arrow prev">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"
+              />
+            </svg>
+          </div>
+
+          <div class="gallery-slider">
+            <div class="gallery-item">
+              <img
+                src="https://www.imgonline.com.ua/examples/bee-on-daisy.jpg"
+                alt="Скриншот 1"
+                class="lang"
+                data-key="gallery_alt_1"
+              />
+            </div>
+            <div class="gallery-item">
+              <img
+                src="https://www.imgonline.com.ua/examples/bee-on-daisy.jpg"
+                alt="Скриншот 2"
+                class="lang"
+                data-key="gallery_alt_2"
+              />
+            </div>
+            <div class="gallery-item">
+              <img
+                src="https://www.imgonline.com.ua/examples/bee-on-daisy.jpg"
+                alt="Скриншот 3"
+                class="lang"
+                data-key="gallery_alt_3"
+              />
+            </div>
+            <div class="gallery-item">
+              <img
+                src="https://www.imgonline.com.ua/examples/bee-on-daisy.jpg"
+                alt="Скриншот 4"
+                class="lang"
+                data-key="gallery_alt_4"
+              />
+            </div>
+            <div class="gallery-item">
+              <img
+                src="https://www.imgonline.com.ua/examples/bee-on-daisy.jpg"
+                alt="Скриншот 5"
+                class="lang"
+                data-key="gallery_alt_5"
+              />
+            </div>
+            <div class="gallery-item">
+              <img
+                src="https://www.imgonline.com.ua/examples/bee-on-daisy.jpg"
+                alt="Скриншот 6"
+                class="lang"
+                data-key="gallery_alt_6"
+              />
+            </div>
+            <div class="gallery-item">
+              <img
+                src="https://www.imgonline.com.ua/examples/bee-on-daisy.jpg"
+                alt="Скриншот 7"
+                class="lang"
+                data-key="gallery_alt_7"
+              />
+            </div>
+            <div class="gallery-item">
+              <img
+                src="https://www.imgonline.com.ua/examples/bee-on-daisy.jpg"
+                alt="Скриншот 8"
+                class="lang"
+                data-key="gallery_alt_8"
+              />
+            </div>
+            <div class="gallery-item">
+              <img
+                src="https://www.imgonline.com.ua/examples/bee-on-daisy.jpg"
+                alt="Скриншот 9"
+                class="lang"
+                data-key="gallery_alt_9"
+              />
+            </div>
+            <div class="gallery-item">
+              <img
+                src="https://www.imgonline.com.ua/examples/bee-on-daisy.jpg"
+                alt="Скриншот 10"
+                class="lang"
+                data-key="gallery_alt_10"
+              />
+            </div>
+          </div>
+
+          <div class="gallery-arrow next">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Модальное окно для галереи -->
+    <div class="gallery-modal">
+      <div class="modal-content">
+        <img src="KARTINKA" alt="KARTINKA" />
+        <div class="image-counter lang" data-key="image_counter">1/10</div>
+        <div class="modal-close"></div>
+        <div class="modal-controls">
+          <div class="modal-arrow prev">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"
+              />
+            </svg>
+          </div>
+          <div class="modal-arrow next">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Секция с платформами -->
+    <section class="platforms">
+      <h3 class="lang" data-key="platforms_title">Доступно на платформах:</h3>
+      <div class="platform-links">
+        <a href="#" class="platform-link">
+          <div class="platform-icon steam-icon">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Steam_icon_logo.svg/1024px-Steam_icon_logo.svg.png"
+              alt="Steam"
+            />
+          </div>
+          <span class="platform-name">Steam</span>
+        </a>
+        <a href="#" class="platform-link">
+          <div class="platform-icon appstore-icon">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/App_Store_%28iOS%29.svg/2048px-App_Store_%28iOS%29.svg.png"
+              alt="App Store"
+            />
+          </div>
+          <span class="platform-name">App Store</span>
+        </a>
+        <a href="#" class="platform-link">
+          <div class="platform-icon playmarket-icon">
+            <img
+              src="https://img.icons8.com/fluent/600/google-play-store-new.png"
+              alt="Play Market"
+            />
+          </div>
+          <span class="platform-name">Play Market</span>
+        </a>
+      </div>
+    </section>
+
+    <footer>
+      <img
+        src="twoj-obraz.jpg"
+        alt="logo"
+        class="lang"
+        data-key="footer_logo_alt"
+      />
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
